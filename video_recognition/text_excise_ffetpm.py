@@ -66,8 +66,12 @@ def deal_with_ffmpeg(video_url):
 
     logger.info("Save video to: %s" % save_path)
     urllib.request.urlretrieve(video_url, save_path)
+    image_dir_name = 'image_' + str(task_id)
 
-    cmd = "ffmpeg -i {} -r 1 -q:v 2 -f image2 /home/tarena/ffmpeg_demo/image/%d.jpeg".format(save_path)
+    if not os.path.exists('/home/tarena/ffmpeg_demo/{}'.format(image_dir_name)):
+        os.mkdir('/home/tarena/ffmpeg_demo/{}'.format(image_dir_name))
+
+    cmd = "ffmpeg -i {} -r 1 -q:v 2 -f image2 /home/tarena/ffmpeg_demo/{}/%d.jpeg".format(save_path, image_dir_name)
     logger.info(cmd)
 
     rt_cmd = os.system(cmd)
@@ -79,6 +83,7 @@ def deal_with_ffmpeg(video_url):
         logger.info('Failure for cmd: %s' % cmd)
         logger.info('Failure for cmd')
         return 1
+
 
 
 while True:
