@@ -1,6 +1,6 @@
 import requests
 
-res={'a':'zdslgiu23','b':'http://192.168.1.23:1234/webwxgetvideo.mp4','c':'sorry','d':'{}','e':'0'}
+res={'a':'zdslgiu234','b':'http://192.168.1.23:1234/webwxgetvideo.mp4','c':'sorry','d':'{}','e':'0'}
 
 #ress=requests.post('http://127.0.0.1:5000/api/delete',res_d)
 res_query={'id':'11'}
